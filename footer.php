@@ -124,6 +124,9 @@
       // initialization of cubeportfolio
       $.HSCore.components.HSCubeportfolio.init('.cbp');  
 
+      // initialization of fancybox
+      $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
     });
 
   </script>

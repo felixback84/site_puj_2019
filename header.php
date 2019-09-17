@@ -66,7 +66,6 @@
                    aria-expanded="false"
                    aria-labelledby="homeSubMenu">
                   Home
-                  <span class="fa fa-angle-down u-header__nav-link-icon"></span>
                 </a>
               </li>
                 
@@ -80,7 +79,6 @@
                    aria-haspopup="true"
                    aria-expanded="false">
                   Pages
-                  <span class="fa fa-angle-down u-header__nav-link-icon"></span>
                 </a>
               </li>  
 
@@ -94,7 +92,6 @@
                    aria-expanded="false"
                    aria-labelledby="worksSubMenu">
                   Works
-                  <span class="fa fa-angle-down u-header__nav-link-icon"></span>
                 </a>
               </li>
               <!-- End Works -->
@@ -109,7 +106,6 @@
                    aria-expanded="false"
                    aria-labelledby="blogSubMenu">
                   Blog
-                  <span class="fa fa-angle-down u-header__nav-link-icon"></span>
                 </a>
               </li>
               <!-- End Blog -->
