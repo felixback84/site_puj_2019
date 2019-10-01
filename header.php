@@ -32,8 +32,9 @@
           <!-- Logo -->
           <div class="u-header__navbar-brand-wrapper">
             <a class="navbar-brand u-header__navbar-brand" href="index.html" aria-label="Space">
-              <img class="u-header__navbar-brand-default" src="../../assets/svg/logos/logo.svg" alt="Logo">
-              <img class="u-header__navbar-brand-mobile" src="../../assets/svg/logos/logo-short.svg" alt="Logo">
+              <!-- <img class="u-header__navbar-brand-default" src="../../assets/svg/logos/logo.svg" alt="">
+              <img class="u-header__navbar-brand-mobile" src="../../assets/svg/logos/logo-short.svg" alt=""> -->
+              <h4 class="pt-1"><i class="fas fa-chess-queen pr-2"></i>Hilda project</h4>
             </a>
           </div>
           <!-- End Logo -->
@@ -78,7 +79,7 @@
                 <a id="PagesMegaMenu" class="nav-link u-header__nav-link" href="javascript:;"
                    aria-haspopup="true"
                    aria-expanded="false">
-                  Pages
+                  Tienda
                 </a>
               </li>  
 
@@ -91,7 +92,7 @@
                    aria-haspopup="true"
                    aria-expanded="false"
                    aria-labelledby="worksSubMenu">
-                  Works
+                  Blog
                 </a>
               </li>
               <!-- End Works -->
@@ -105,10 +106,24 @@
                    aria-haspopup="true"
                    aria-expanded="false"
                    aria-labelledby="blogSubMenu">
-                  Blog
+                  <i class="far fa-smile"></i>
                 </a>
               </li>
               <!-- End Blog -->
+
+              <!-- Checkout -->
+              <li class="nav-item hs-has-sub-menu u-header__nav-item"
+                  data-event="hover"
+                  data-animation-in="fadeInUp"
+                  data-animation-out="fadeOut">
+                <a id="blogMegaMenu" class="nav-link u-header__nav-link" href="javascript:;"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   aria-labelledby="blogSubMenu">
+                  <i class="fas fa-shopping-basket"></i>
+                </a>
+              </li>
+              <!-- End Checkout -->
 
           </ul>
         </nav>

@@ -4,13 +4,19 @@ get_header();?>
   <!-- ========== MAIN CONTENT ========== -->
 <main id="content" role="main">
   <!-- Hero Section -->
-  <div class="gradient-overlay-half-dark-v1 bg-img-hero" style="background-image: url(../../assets/img/1920x1080/img5.jpg);">
+  <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'pageBanner' );?>
+  <div class="gradient-overlay-half-dark-v1 bg-img-hero" style="background-image: url('<?php echo $thumb['0'];?>');">
     <div class="d-lg-flex align-items-lg-center flex-lg-column">
       <div class="container space-3 space-4-top--lg">
         <!-- Title -->
         <div class="w-md-50">
-          <h1 class="display-4 font-size-48--md-down text-white">The easiest way to manage business</h1>
-          <p class="lead text-white">Grow your business with the top HTML5 template.</p>
+          <h1 class="display-4 font-size-48--md-down text-white"><?php 
+          $txtMain = get_field('field_5d936cd4a8a09'); 
+          echo $txtMain;?>
+          </h1>
+          <p class="lead text-white"><?php 
+          $txtSec = get_field('field_5d936d11a8a0a'); 
+          echo $txtSec;?></p>
         </div>
         <!-- End Title -->
       </div>
@@ -43,7 +49,7 @@ get_header();?>
 
 <!-- Icon Blocks Section -->
 <div class="bg-gray-100">
-  <div class="container space-2 space-3--lg">
+  <div class="container space-1 space-1--lg">
     <!-- Title -->
     <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
       <span class="u-label u-label--sm u-label--purple mb-3">Benefits</span>
@@ -56,8 +62,13 @@ get_header();?>
       <div class="col-6 col-sm-4 col-lg mb-5 mb-lg-0">
         <!-- Icon Block -->
         <a class="d-block card-frame bg-white text-center rounded py-7 px-5" href="#">
-          <img class="d-block max-width-12 mx-auto mb-4" src="../../assets/svg/components/plan-brown-icon.svg" alt="SVG">
+          <?php $icon01 = get_field('field_5d9358d6ee87d');?>
+          <img class="d-block max-width-12 mx-auto mb-4" src="<?php  
+          echo $icon01{'url'};?>" alt="<?php $icon01{'alt'};?>">
           <h3 class="h6 text-dark mb-0">Marketing</h3>
+          <p class="lead text-secondary"><?php 
+          $contentFeatures1 = get_field('field_5d935a42ee87f'); 
+          echo $contentFeatures1;?></p>
         </a>
         <!-- End Icon Block -->
       </div>
@@ -65,8 +76,13 @@ get_header();?>
       <div class="col-6 col-sm-4 col-lg mb-5 mb-sm-0">
         <!-- Icon Block -->
         <a class="d-block card-frame bg-white text-center rounded py-7 px-5" href="#">
-          <img class="d-block max-width-12 mx-auto mb-4" src="../../assets/svg/components/cog-primary-icon.svg" alt="SVG">
+          <?php $icon02 = get_field('field_5d935ab8a99b9');?>
+          <img class="d-block max-width-12 mx-auto mb-4" src="<?php  
+          echo $icon02{'url'};?>" alt="<?php $icon02{'alt'};?>">
           <h3 class="h6 text-dark mb-0">Operations</h3>
+          <p class="lead text-secondary"><?php 
+          $contentFeatures2 = get_field('field_5d935ad6a99bb'); 
+          echo $contentFeatures2;?></p>
         </a>
         <!-- End Icon Block -->
       </div>
@@ -74,8 +90,13 @@ get_header();?>
       <div class="col-6 col-sm-4 col-lg mb-5 mb-sm-0">
         <!-- Icon Block -->
         <a class="d-block card-frame bg-white text-center rounded py-7 px-5" href="#">
-          <img class="d-block max-width-12 mx-auto mb-4" src="../../assets/svg/components/arrow-red-icon.svg" alt="SVG">
+          <?php $icon03 = get_field('field_5d935da259b52');?>
+          <img class="d-block max-width-12 mx-auto mb-4" src="<?php  
+          echo $icon03{'url'};?>" alt="<?php $icon03{'alt'};?>">
           <h3 class="h6 text-dark mb-0">HR</h3>
+          <p class="lead text-secondary"><?php 
+          $contentFeatures3 = get_field('field_5d935db959b54'); 
+          echo $contentFeatures3;?></p>
         </a>
         <!-- End Icon Block -->
       </div>
@@ -83,8 +104,13 @@ get_header();?>
       <div class="col-6 col-sm-4 col-lg mb-5 mb-sm-0">
         <!-- Icon Block -->
         <a class="d-block card-frame bg-white text-center rounded py-7 px-5" href="#">
-          <img class="d-block max-width-12 mx-auto mb-4" src="../../assets/svg/components/legal-purple-icon.svg" alt="SVG">
+          <?php $icon04 = get_field('field_5d935f22cf98b');?>
+          <img class="d-block max-width-12 mx-auto mb-4" src="<?php  
+          echo $icon04{'url'};?>" alt="<?php $icon04{'alt'};?>">
           <h3 class="h6 text-dark mb-0">Legal</h3>
+          <p class="lead text-secondary"><?php 
+          $contentFeatures4 = get_field('field_5d935f2dcf98d'); 
+          echo $contentFeatures4;?></p>
         </a>
         <!-- End Icon Block -->
       </div>
@@ -92,8 +118,13 @@ get_header();?>
       <div class="col-6 col-sm-4 col-lg">
         <!-- Icon Block -->
         <a class="d-block card-frame bg-white text-center rounded py-7 px-5" href="#">
-          <img class="d-block max-width-12 mx-auto mb-4" src="../../assets/svg/components/finance-blue-icon.svg" alt="SVG">
+          <?php $icon05 = get_field('field_5d935f36cf98e');?>
+          <img class="d-block max-width-12 mx-auto mb-4" src="<?php  
+          echo $icon05{'url'};?>" alt="<?php $icon05{'alt'};?>">
           <h3 class="h6 text-dark mb-0">Finance</h3>
+          <p class="lead text-secondary"><?php 
+          $contentFeatures5 = get_field('field_5d935f4acf991'); 
+          echo $contentFeatures5;?></p>
         </a>
         <!-- End Icon Block -->
       </div>
@@ -118,21 +149,32 @@ get_header();?>
           {"width": 300, "cols": 1}
         ]'>
     <!-- Item -->
+    <?php 
+    $products = new WP_Query(
+      array(
+
+      'posts_per_page' => -1,
+      'orderby'   => 'rand',
+      'post_type' => 'productos',
+            )
+      );
+
+  while($products->have_posts()) {
+      $products->the_post(); ?>
+
     <div class="cbp-item graphic">
       <div class="cbp-caption">
         <div class="cbp-caption-defaultWrap">
-          <img src="../../assets/img/500x330/img1.jpg" alt="Image Description">
+         <img style="width: 100%; height: 100%;" src="<?php if ( has_post_thumbnail() ) { the_post_thumbnail_url('products_home');}?>" alt="<?php the_title_attribute();?>">
         </div>
         <div class="cbp-caption-activeWrap">
           <div class="cbp-l-caption-alignCenter d-flex align-items-start">
             <div class="mb-auto p-3">
-              <h2 class="h5 mb-0">Remind me more</h2>
-              <p class="small mb-0">by Tiberiu Neamu</p>
+              <span class="u-label u-label--sm u-label--purple mb-3"><h2 class="h5 mb-0"><?php the_title();?></h2></span>     
             </div>
-
             <ul class="list-inline mt-auto ml-auto p-3 mb-0">
               <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="../portfolio/single-page-simple.html">
+                <a class="u-icon u-icon--primary rounded-circle" href="<?php the_permalink();?>">
                   <i class="fa fa-link u-icon__inner"></i>
                 </a>
               </li>
@@ -146,223 +188,7 @@ get_header();?>
         </div>
       </div>
     </div>
-    <!-- End Item -->
-
-    <!-- Item -->
-    <div class="cbp-item branding">
-      <div class="cbp-caption">
-        <div class="cbp-caption-defaultWrap">
-          <img src="../../assets/img/500x330/img2.jpg" alt="Image Description">
-        </div>
-        <div class="cbp-caption-activeWrap">
-          <div class="cbp-l-caption-alignCenter d-flex align-items-start">
-            <div class="mb-auto p-3">
-              <h3 class="h5 mb-0">Workout buddy</h3>
-              <p class="small mb-0">by Tiberiu Neamu</p>
-            </div>
-
-            <ul class="list-inline mt-auto ml-auto p-3 mb-0">
-              <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="../portfolio/single-page-simple.html">
-                  <i class="fa fa-link u-icon__inner"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="cbp-lightbox u-icon u-icon--primary rounded-circle" href="../../assets/img/1920x1080/img8.jpg">
-                  <i class="fa fa-images u-icon__inner"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Item -->
-
-    <!-- Item -->
-    <div class="cbp-item abstract">
-      <div class="cbp-caption">
-        <div class="cbp-caption-defaultWrap">
-          <img src="../../assets/img/500x330/img3.jpg" alt="Image Description">
-        </div>
-        <div class="cbp-caption-activeWrap">
-          <div class="cbp-l-caption-alignCenter d-flex align-items-start">
-            <div class="mb-auto p-3">
-              <h4 class="h5 mb-0">Easy note</h4>
-              <p class="small mb-0">by Cosmin Capitanu</p>
-            </div>
-
-            <ul class="list-inline mt-auto ml-auto p-3 mb-0">
-              <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="../portfolio/single-page-simple.html">
-                  <i class="fa fa-link u-icon__inner"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="cbp-lightbox u-icon u-icon--primary rounded-circle" href="../../assets/img/1920x1080/img9.jpg">
-                  <i class="fa fa-images u-icon__inner"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Item -->
-
-    <!-- Item -->
-    <div class="cbp-item graphic illustration">
-      <div class="cbp-caption">
-        <div class="cbp-caption-defaultWrap">
-          <img src="../../assets/img/500x330/img4.jpg" alt="Image Description">
-        </div>
-        <div class="cbp-caption-activeWrap">
-          <div class="cbp-l-caption-alignCenter d-flex align-items-start">
-            <div class="mb-auto p-3">
-              <h4 class="h5 mb-0">Designing</h4>
-              <p class="small mb-0">by Cosmin Capitanu</p>
-            </div>
-
-            <ul class="list-inline mt-auto ml-auto p-3 mb-0">
-              <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="../portfolio/single-page-simple.html">
-                  <i class="fa fa-link u-icon__inner"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="cbp-lightbox u-icon u-icon--primary rounded-circle" href="../../assets/img/1920x1080/img10.jpg">
-                  <i class="fa fa-images u-icon__inner"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Item -->
-
-    <!-- Item -->
-    <div class="cbp-item graphic illustration">
-      <div class="cbp-caption">
-        <div class="cbp-caption-defaultWrap">
-          <img src="../../assets/img/500x330/img5.jpg" alt="Image Description">
-        </div>
-        <div class="cbp-caption-activeWrap">
-          <div class="cbp-l-caption-alignCenter d-flex align-items-start">
-            <div class="mb-auto p-3">
-              <h4 class="h5 mb-0">Creative work</h4>
-              <p class="small mb-0">by Cosmin Capitanu</p>
-            </div>
-
-            <ul class="list-inline mt-auto ml-auto p-3 mb-0">
-              <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="../portfolio/single-page-simple.html">
-                  <i class="fa fa-link u-icon__inner"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="cbp-lightbox u-icon u-icon--primary rounded-circle" href="../../assets/img/1920x1080/img11.jpg">
-                  <i class="fa fa-images u-icon__inner"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Item -->
-
-    <!-- Item -->
-    <div class="cbp-item graphic illustration">
-      <div class="cbp-caption">
-        <div class="cbp-caption-defaultWrap">
-          <img src="../../assets/img/500x330/img6.jpg" alt="Image Description">
-        </div>
-        <div class="cbp-caption-activeWrap">
-          <div class="cbp-l-caption-alignCenter d-flex align-items-start">
-            <div class="mb-auto p-3">
-              <h4 class="h5 mb-0">Development</h4>
-              <p class="small mb-0">by Cosmin Capitanu</p>
-            </div>
-
-            <ul class="list-inline mt-auto ml-auto p-3 mb-0">
-              <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="../portfolio/single-page-simple.html">
-                  <i class="fa fa-link u-icon__inner"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="cbp-lightbox u-icon u-icon--primary rounded-circle" href="../../assets/img/1920x1080/img11.jpg">
-                  <i class="fa fa-images u-icon__inner"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Item -->
-
-    <!-- Item -->
-    <div class="cbp-item graphic">
-      <div class="cbp-caption">
-        <div class="cbp-caption-defaultWrap">
-          <img src="../../assets/img/500x330/img9.jpg" alt="Image Description">
-        </div>
-        <div class="cbp-caption-activeWrap">
-          <div class="cbp-l-caption-alignCenter d-flex align-items-start">
-            <div class="mb-auto p-3">
-              <h4 class="h5 mb-0">Remind me more</h4>
-              <p class="small mb-0">by Tiberiu Neamu</p>
-            </div>
-
-            <ul class="list-inline mt-auto ml-auto p-3 mb-0">
-              <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="../portfolio/single-page-simple.html">
-                  <i class="fa fa-link u-icon__inner"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="cbp-lightbox u-icon u-icon--primary rounded-circle" href="../../assets/img/1920x1080/img20.jpg">
-                  <i class="fa fa-images u-icon__inner"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Item -->
-
-    <!-- Item -->
-    <div class="cbp-item branding">
-      <div class="cbp-caption">
-        <div class="cbp-caption-defaultWrap">
-          <img src="../../assets/img/500x330/img10.jpg" alt="Image Description">
-        </div>
-        <div class="cbp-caption-activeWrap">
-          <div class="cbp-l-caption-alignCenter d-flex align-items-start">
-            <div class="mb-auto p-3">
-              <h4 class="h5 mb-0">Workout buddy</h4>
-              <p class="small mb-0">by Tiberiu Neamu</p>
-            </div>
-
-            <ul class="list-inline mt-auto ml-auto p-3 mb-0">
-              <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="../portfolio/single-page-simple.html">
-                  <i class="fa fa-link u-icon__inner"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="cbp-lightbox u-icon u-icon--primary rounded-circle" href="../../assets/img/1920x1080/img21.jpg">
-                  <i class="fa fa-images u-icon__inner"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+  <?php }?>
     <!-- End Item -->
   </div>
   <!-- End Content -->

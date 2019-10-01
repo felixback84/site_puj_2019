@@ -85,6 +85,7 @@ function themepuj_features() {
 	add_theme_support('title-tag');
 
 	add_image_size('banner_main',1920, 1080, true);
+	add_image_size('products_home',500, 400, true);
 }
 
 add_action('after_setup_theme','themepuj_features');
