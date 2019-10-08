@@ -34,7 +34,7 @@
             <a class="navbar-brand u-header__navbar-brand" href="index.html" aria-label="Space">
               <!-- <img class="u-header__navbar-brand-default" src="../../assets/svg/logos/logo.svg" alt="">
               <img class="u-header__navbar-brand-mobile" src="../../assets/svg/logos/logo-short.svg" alt=""> -->
-              <h4 class="pt-1"><i class="fas fa-chess-queen pr-2"></i>Hilda project</h4>
+              <h4 class="pt-1"><i class="fas fa-chess-queen pr-2"></i>Hilda Project</h4>
             </a>
           </div>
           <!-- End Logo -->

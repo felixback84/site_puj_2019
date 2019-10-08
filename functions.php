@@ -78,6 +78,7 @@ function themepuj_files() {
 
 add_action('wp_enqueue_scripts','themepuj_files');
 
+// Sizes image suscription
 
 function themepuj_features() {
 
@@ -85,9 +86,33 @@ function themepuj_features() {
 	add_theme_support('title-tag');
 
 	add_image_size('banner_main',1920, 1080, true);
-	add_image_size('products_home',500, 400, true);
+	add_image_size('products_home',500, 550, true);
+	add_image_size('products_thumb_mini_slider',100, 100, true);
 }
 
 add_action('after_setup_theme','themepuj_features');
+
+// Slider product details pics
+
+function imagePicProduct($codeField,$nameSize) {
+
+// acf
+$image = get_field($codeField);
+
+// vars
+$url = $image['url'];
+$alt = $image['alt'];
+
+// thumbnail
+$size = $nameSize;
+$thumb = $image['sizes'][ $size ];
+$width = $image['sizes'][ $size . '-width' ];
+$height = $image['sizes'][ $size . '-height' ];
+
+echo '<div class="js-slide my-2">';
+  echo '<img class="img-fluid u-slick--pagination-active-border__item" src="'. $thumb .'" alt="'. $alt .'" width ="'. $width .'" height = "'. $height .'"/>';
+echo '</div>';
+
+    }         
 
 ?>

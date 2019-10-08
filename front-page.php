@@ -25,8 +25,11 @@ get_header();?>
     <div class="container space-1-bottom">
       <!-- Fancybox -->
       <div class="d-inline-block">
-        <a class="js-fancybox u-media-player media align-items-center text-white" href="javascript:;"
-           data-src="//vimeo.com/167434033"
+        <?php 
+          $urlVid = get_field('field_5d935784f9af3'); 
+        ?>
+        <a class="js-fancybox u-media-player media align-items-center text-white" href=""
+           data-src="<?php echo $urlVid; ?>"
            data-speed="700"
            data-animate-in="zoomIn"
            data-animate-out="zoomOut"
@@ -35,8 +38,8 @@ get_header();?>
             <span class="fa fa-play u-media-player__icon-inner"></span>
           </span>
           <span class="media-body">
-            <small class="d-block text-uppercase">Watch</small>
-            Intro Video
+            <small class="d-block text-uppercase">Mira</small>
+            Intro Video del prodcuto
           </span>
         </a>
       </div>
@@ -104,7 +107,7 @@ get_header();?>
       <div class="col-6 col-sm-4 col-lg mb-5 mb-sm-0">
         <!-- Icon Block -->
         <a class="d-block card-frame bg-white text-center rounded py-7 px-5" href="#">
-          <?php $icon04 = get_field('field_5d935f22cf98b');?>
+          3
           <img class="d-block max-width-12 mx-auto mb-4" src="<?php  
           echo $icon04{'url'};?>" alt="<?php $icon04{'alt'};?>">
           <h3 class="h6 text-dark mb-0">Legal</h3>
@@ -134,7 +137,14 @@ get_header();?>
 <!-- End Icon Blocks Section -->
 
 <!-- Cubeportfolio -->
-<div class="container-fluid u-cubeportfolio py-3">
+<div class="container u-cubeportfolio py-3">
+  <!-- Title -->
+  <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
+    <span class="u-label u-label--sm u-label--purple mb-3">Benefits</span>
+    <h2 class="h3">Key benefits of project Space template</h2>
+    <p>Choose your team to learn more about Space.</p>
+  </div>
+  <!-- End Title -->
   <!-- Content -->
   <div class="cbp"
         data-animation="quicksand"
@@ -142,13 +152,13 @@ get_header();?>
         data-x-gap="15"
         data-y-gap="15"
         data-media-queries='[
-          {"width": 1500, "cols": 4},
-          {"width": 1100, "cols": 4},
-          {"width": 800, "cols": 3},
+          {"width": 1500, "cols": 3},
+          {"width": 1100, "cols": 3},
+          {"width": 800, "cols": 2},
           {"width": 580, "cols": 2},
           {"width": 300, "cols": 1}
         ]'>
-    <!-- Item -->
+    
     <?php 
     $products = new WP_Query(
       array(
@@ -162,28 +172,17 @@ get_header();?>
   while($products->have_posts()) {
       $products->the_post(); ?>
 
+    <!-- Item -->  
     <div class="cbp-item graphic">
       <div class="cbp-caption">
         <div class="cbp-caption-defaultWrap">
-         <img style="width: 100%; height: 100%;" src="<?php if ( has_post_thumbnail() ) { the_post_thumbnail_url('products_home');}?>" alt="<?php the_title_attribute();?>">
+         <img style="width: 500px; height: 550px;" src="<?php if ( has_post_thumbnail() ) { the_post_thumbnail_url('products_home');}?>" alt="<?php the_title_attribute();?>">
         </div>
         <div class="cbp-caption-activeWrap">
           <div class="cbp-l-caption-alignCenter d-flex align-items-start">
             <div class="mb-auto p-3">
-              <span class="u-label u-label--sm u-label--purple mb-3"><h2 class="h5 mb-0"><?php the_title();?></h2></span>     
+              <a href="<?php the_permalink();?>"><span class="u-label u-label--sm u-label--purple mb-3"><h2 class="h5 mb-0"><?php the_title();?></h2></span></a>    
             </div>
-            <ul class="list-inline mt-auto ml-auto p-3 mb-0">
-              <li class="list-inline-item">
-                <a class="u-icon u-icon--primary rounded-circle" href="<?php the_permalink();?>">
-                  <i class="fa fa-link u-icon__inner"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="cbp-lightbox u-icon u-icon--primary rounded-circle" href="../../assets/img/1920x1080/img7.jpg">
-                  <i class="fa fa-images u-icon__inner"></i>
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
@@ -194,5 +193,107 @@ get_header();?>
   <!-- End Content -->
 </div>
 <!-- End Cubeportfolio -->
+
+<!-- Contact form -->
+<div style="background-color: #FFF2F2">
+  <div class="container-fluid space-1 space-1--lg">
+    <!-- Title -->
+    <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
+      <span class="u-label u-label--sm u-label--purple mb-3">Benefits</span>
+      <h2 class="h3">Key benefits of project Space template</h2>
+      <p>Choose your team to learn more about Space.</p>
+    </div>
+    <!-- End Title -->
+      <div class="w-lg-80 mx-auto">
+        <form class="js-validate">
+          <div class="row">
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <div class="js-focus-state input-group form">
+                  <input class="form-control form__input" type="text" name="name" required
+                         placeholder="Your name"
+                         aria-label="Your name"
+                         data-msg="Please enter your name."
+                         data-error-class="u-has-error"
+                         data-success-class="u-has-success">
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <div class="js-focus-state input-group form">
+                  <input class="form-control form__input" type="email" name="email" required
+                         placeholder="Your email address"
+                         aria-label="Your email address"
+                         data-msg="Please enter a valid email address."
+                         data-error-class="u-has-error"
+                         data-success-class="u-has-success">
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+            <div class="w-100"></div>
+
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <div class="js-focus-state input-group form">
+                  <input class="form-control form__input" type="text" name="subject" required
+                         placeholder="Subject"
+                         aria-label="Subject"
+                         data-msg="Please enter a subject."
+                         data-error-class="u-has-error"
+                         data-success-class="u-has-success">
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+
+            <!-- Input -->
+            <div class="col-sm-6 mb-6">
+              <div class="js-form-message">
+                <div class="js-focus-state input-group form">
+                  <input class="form-control form__input" type="number" name="phone" required
+                         placeholder="Your phone number"
+                         aria-label="Your phone number"
+                         data-msg="Please enter a valid phone number."
+                         data-error-class="u-has-error"
+                         data-success-class="u-has-success">
+                </div>
+              </div>
+            </div>
+            <!-- End Input -->
+          </div>
+
+          <!-- Input -->
+          <div class="js-form-message mb-9">
+            <div class="js-focus-state input-group form">
+              <textarea class="form-control form__input" rows="6" name="text" required
+                        placeholder="How can we help you?"
+                        aria-label="How can we help you?"
+                        data-msg="Please enter a reason."
+                        data-error-class="u-has-error"
+                        data-success-class="u-has-success"></textarea>
+            </div>
+          </div>
+          <!-- End Input -->
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-wide mb-4">Submit</button>
+            <p class="small">We'll get back to you in 1-2 business days.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End Contact Us Form Section -->
+
+  </div> 
+</div>   
+<!-- End Contact form -->
 
 <?php get_footer();?>
