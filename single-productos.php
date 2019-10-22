@@ -24,7 +24,7 @@ while(have_posts()) {
       </div>
     </div>  
     <!-- Product Description Section -->
-    <div class="container space-2 space-3--lg">
+    <div class="container space-2 space-2--lg">
       <div class="row">
         <div class="col-lg-7 mb-7 mb-lg-0">
           <!-- Red Product Gallery -->
@@ -74,9 +74,11 @@ while(have_posts()) {
         <div class="col-lg-5">
           <!-- Content -->
           <div class="mb-5">
-            <h1 class="font-weight-normal">The Space shoes</h1>
-            <span class="d-block h3 mb-3">$99</span>
-            <p>Our Space Design Makeup collection – to create your coolest look, then switch it up again tomorrow.</p>
+           <!--  <h1 class="font-weight-normal"><?php //the_title();?></h1> -->
+            <?php $item_price = get_field_object('field_5d9c8a60680c8');?>
+            <span class="d-block h3 mb-3">$ <?php echo $item_price['value'];?> COP</span>
+            <?php $itemPowers = get_field_object('field_5d9ca1a67e74d');?>
+            <p><?php echo$itemPowers['value'];?></p>
           </div>
           <a class="btn btn-block btn-primary" href="#">Add to Cart</a>
           <!-- End Content -->
@@ -88,34 +90,11 @@ while(have_posts()) {
     <hr class="my-0">
 
     <!-- Product Details Section -->
-    <div class="container space-2 space-3--lg">
+    <div class="container space-1 space-1--lg">
       <div class="row">
-        <div class="col-sm-6 col-md-4 mb-5 mb-md-0">
-          <h4 class="h6">Product details</h4>
-          <ul class="text-secondary pl-3">
-            <li>A failsafe wardrobe addition</li>
-            <li>Crew neck</li>
-            <li>Long sleeves</li>
-            <li>Looser in the chest and hem</li>
-          </ul>
-        </div>
-
-        <div class="col-sm-6 col-md-4 mb-5 mb-md-0">
-          <h4 class="h6">Material &amp; care</h4>
-          <ul class="text-secondary pl-3">
-            <li>100% Cotton</li>
-            <li>Machine wash cold, with like colors</li>
-            <li>Tumble dry low</li>
-            <li>Do not dry clean</li>
-          </ul>
-        </div>
-
-        <div class="col-sm-6 col-md-4">
-          <h4 class="h6">Look after me</h4>
-          <p class="mb-0">Avoid post-wash regrets.</p>
-          <p class="mb-0">Always check the label.</p>
-          <p class="mb-0">Basic jersey fabric.</p>
-        </div>
+        <?php itemInfo('field_5d9c9d2772236');?>
+        <?php itemInfo('field_5d9c9d4f72237');?>
+        <?php itemInfo('field_5d9c9ddd72238');?>
       </div>
     </div>
     <!-- End Product Details Section -->

@@ -113,6 +113,20 @@ echo '<div class="js-slide my-2">';
   echo '<img class="img-fluid u-slick--pagination-active-border__item" src="'. $thumb .'" alt="'. $alt .'" width ="'. $width .'" height = "'. $height .'"/>';
 echo '</div>';
 
-    }         
+    }  
+
+// Product details info
+
+function itemInfo($theField){
+
+	$theField = get_field_object($theField);
+	echo '<div class="col-sm-6 col-md-4 mb-5 mb-md-0">';
+	    echo '<h4 class="h6">' . $theField['label'] .'</h4>';
+	    echo '<p>';
+	    echo  $theField['value'];
+	    echo '</p>'; 
+	echo '</div>';
+
+}      
 
 ?>
