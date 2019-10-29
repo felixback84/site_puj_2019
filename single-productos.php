@@ -78,7 +78,7 @@ while(have_posts()) {
             <?php $item_price = get_field_object('field_5d9c8a60680c8');?>
             <span class="d-block h3 mb-3">$ <?php echo $item_price['value'];?> COP</span>
             <?php $itemPowers = get_field_object('field_5d9ca1a67e74d');?>
-            <p><?php echo$itemPowers['value'];?></p>
+            <p><?php the_content();?></p>
           </div>
           <a class="btn btn-block btn-primary" href="#">Add to Cart</a>
           <!-- End Content -->
