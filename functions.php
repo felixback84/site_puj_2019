@@ -87,7 +87,7 @@ function themepuj_features() {
 
 	add_image_size('banner_main',1920, 1080, true);
 	add_image_size('products_home',500, 550, true);
-	add_image_size('categories_cover',250, 275, true);
+	add_image_size('categories_cover',175, 320, true);
 	add_image_size('products_thumb_mini_slider',100, 100, true);
 }
 
@@ -129,31 +129,5 @@ function itemInfo($theField){
 	echo '</div>';
 
 }     
-
-// Product categories cover
-
-function output_before_taxonomy_loop(){
-	if (is_tax()) {
- 
-		// Display the artist image
-		$queried_object = get_queried_object();
-		$taxonomy = $queried_object->taxonomy;
-		$term_id = $queried_object->term_id;
-		$terms = get_field( 'artist_image', $taxonomy.'_'.$term_id);
- 
-		if( $terms ) {
- 
-			echo '<img src="'. $terms['url'] .'" />';
- 
-		} else {
- 
-		    //do nothing
- 
-		}
- 
-	}
-} 
-
-add_action( 'loop_end', 'output_before_taxonomy_loop' );
 
 ?>

@@ -7,7 +7,8 @@ get_header();
 <!-- ========== MAIN CONTENT ========== -->
 <main id="content" role="main">
 	<!-- Hero Section -->
-    <div class="bg-img-hero" style="background-image: url(../../assets/img/bg/bg1.png);">
+		<?php $bgPic = wp_get_attachment_image_url('101','banner_main',true);?>              
+    <div class="bg-img-hero" style="background-image: url('<?php echo $bgPic;?>');">    	             
       	<div class="js-slick-carousel u-slick space-1"
            data-infinite="true"
            data-arrows-classes="d-none d-lg-inline-block u-slick__arrow-classic u-slick__arrow-classic--dark u-slick__arrow-centered--y rounded-circle"
@@ -75,30 +76,77 @@ get_header();
         <!-- Title -->
 	    <div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
 	        <span class="u-label u-label--sm u-label--purple mb-3">Space products</span>
-	        <h2 class="h3">High-quality brands by Space</h2>
-	        <p>Blending fine fabrics and brilliant colors, our spring assortment of handcrafted accessories are the perfect option for the warm months ahead.</p>
+	        <h2 class="h2">Productos en Hilda</h2>
+	        <p>Conoce a tus amigos y las herramientas que tienen para ti.</p>
 	    </div>
 	    <!-- End Title -->
 
 	    <!--  Categories -->
-	    <div class="card-deck d-block d-lg-flex mb-9">
+	    <div class="card-deck d-block d-lg-flex">
+
+	    	<?php 
+				// loop through terms of the Markets Taxonomy
+				$getArgs = array(
+				'parent'       => 0,
+				'order' => 'DESC',
+				'orderby' => 'count',
+		   		'hide_empty'    => false,
+				);
+				// get the taxonomy we are going to loop through. 
+				$taxonomy = get_terms('categorias', $getArgs);
+					
+				// Start the loop through the terms
+				foreach ($taxonomy as $term) { 
+			          
+			 		// Get acf field Name
+			        $image = get_field('field_5db89e9abe55f', $term ); 
+			        $url = $image['url'];
+			        $title = $image['title'];
+			        $alt = $image['alt'];
+			     	// which size?
+			        $size = 'categories_cover';
+			        $thumb = $image['sizes'][ $size ];
+		    ?>
 	        <article class="card border-0 mb-5 mb-lg-0">
 		        <div class="card-body row align-items-stretch no-gutters p-0">
 		            <div class="col-6 border border-right-0">
-		                <div class="space-2 px-3 px-sm-5">
+		                <div class="space-1 px-2 px-sm-3">
 			                <div class="mb-4">
-				                <h3 class="h4">Space hats</h3>
-				                <p class="mb-0">Experience a legend</p>
+				                <h3 class="h4"><a href ="<?php echo get_term_link($term)?>"><?php echo $term -> name; ?></a></h3>
+				                <p class="mb-0"><?php $littleDesc = $term -> description; 
+				                echo wp_trim_words($littleDesc, 15);?></p>
 			                </div>
-		                	<a href="#">Show Now</a>
+		                	<a href="<?php get_term_link($term)?>">Ver más</a>
 		                </div>
 		            </div>
-		            <div class="col-6 border border-left-0 bg-img-hero-center" data-bg-img-src="../../assets/img/500x550/img13.jpg"></div>
-		        </div>
+		            <div class="col-6 border border-left-0 bg-img-hero-center">
+		            	<img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>"/>
+		            </div> 
+		        </div>    
 	        </article>
+	        <?php } wp_reset_postdata(); // end foreach ?>
 	    </div>
 	    <!-- End Categories --> 
+	</div>
 
+    <!-- CTA -->
+    <div class="gradient-half-primary-v1">
+      <div class="bg-img-hero" style="background-image: url(../../assets/img/bg/bg2.png);">
+        <div class="container">
+          <div class="row justify-content-lg-center align-items-md-center text-center text-md-left space-2">
+            <div class="col-md-12 col-lg-5">
+              <div class="pl-md-4">
+                <h2 class="h1 text-white mb-0">Get <strong>20% off</strong> your next purchase</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End CTA -->
+	
+	<div class="container space-1 space-1--lg">    
+	    <!-- Products Section -->
 	    <div class="row mb-9">
 	    	<?php 
 			    $products = new WP_Query(
@@ -116,7 +164,7 @@ get_header();
 			      $precioPromoItem = get_field('field_5d9c8a76680c9');
 			      ?>
 
-	        <div class="col-sm-6 col-lg-3 mb-5">
+	        <div class="col-sm-6 col-lg-4 mb-5">
 		        <!-- Shop Item -->
 		        <a class="d-block border text-dark text-center" href="single-product.html">
 		            <img class="img-fluid" src="<?php if ( has_post_thumbnail() ) { the_post_thumbnail_url('products_home');}?>" alt="Image Description">
@@ -138,26 +186,6 @@ get_header();
 	    </div>
 	</div>
 	<!-- End Products Section -->
-
-    <!-- CTA -->
-    <div class="gradient-half-primary-v1">
-	    <div class="bg-img-hero" style="background-image: url(../../assets/img/bg/bg2.png);">
-	        <div class="container">
-	          	<div class="row justify-content-lg-center align-items-md-center text-center text-md-left space-2">
-	            	<div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-	              		<img class="img-fluid" src="../../assets/img/mockups/img7.png" alt="Image Descriptio">
-	            	</div>
-
-	            	<div class="col-md-6 col-lg-5">
-	              		<div class="pl-md-4">
-	                		<h2 class="h1 text-white mb-0">Get <strong>20% off</strong> your next purchase</h2>
-	              		</div>
-	            	</div>
-	          	</div>
-	        </div>
-	    </div>
-    </div>
-    <!-- End CTA -->
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
 

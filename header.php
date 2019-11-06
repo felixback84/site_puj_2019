@@ -26,7 +26,7 @@
   <!-- ========== HEADER ========== -->
   <header id="header" class="u-header u-header--modern u-header--floating-lg">
     <div id="logoAndNav" class="container">
-      <div class="u-header__section u-header--floating-lg__inner">
+      <div  style="background-color: rgba(255,255,255, 0.8);"  class="u-header__section u-header--floating-lg__inner">
         <!-- Nav -->
         <nav class="js-mega-menu navbar navbar-expand-lg u-header__navbar">
           <!-- Logo -->
@@ -83,6 +83,20 @@
                 </a>
               </li>  
 
+               <!-- Works -->
+              <li class="nav-item hs-has-sub-menu u-header__nav-item"
+                  data-event="hover"
+                  data-animation-in="fadeInUp"
+                  data-animation-out="fadeOut">
+                <a id="worksMegaMenu" class="nav-link u-header__nav-link" href="javascript:;"
+                   aria-haspopup="true"
+                   aria-expanded="false"
+                   aria-labelledby="worksSubMenu">
+                  Terapias
+                </a>
+              </li>
+              <!-- End Works -->
+
               <!-- Works -->
               <li class="nav-item hs-has-sub-menu u-header__nav-item"
                   data-event="hover"
@@ -106,7 +120,7 @@
                    aria-haspopup="true"
                    aria-expanded="false"
                    aria-labelledby="blogSubMenu">
-                  <i class="far fa-smile"></i>
+                  <h3 style="padding-top: 10px;"><i class="far fa-smile"></i></h3>
                 </a>
               </li>
               <!-- End Blog -->
@@ -120,7 +134,7 @@
                    aria-haspopup="true"
                    aria-expanded="false"
                    aria-labelledby="blogSubMenu">
-                  <i class="fas fa-shopping-basket"></i>
+                  <h3 style="padding-top: 10px;"><i class="fas fa-shopping-basket"></i></h3>
                 </a>
               </li>
               <!-- End Checkout -->
