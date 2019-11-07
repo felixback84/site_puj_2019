@@ -26,7 +26,7 @@
   <!-- ========== HEADER ========== -->
   <header id="header" class="u-header u-header--modern u-header--floating-lg">
     <div id="logoAndNav" class="container">
-      <div  style="background-color: rgba(255,255,255, 0.8);"  class="u-header__section u-header--floating-lg__inner">
+      <div style="background-color: rgba(255,255,255, 0.8);"  class="u-header__section u-header--floating-lg__inner">
         <!-- Nav -->
         <nav class="js-mega-menu navbar navbar-expand-lg u-header__navbar">
           <!-- Logo -->
@@ -92,7 +92,7 @@
                    aria-haspopup="true"
                    aria-expanded="false"
                    aria-labelledby="worksSubMenu">
-                  Terapias
+                  Terapias para tí
                 </a>
               </li>
               <!-- End Works -->

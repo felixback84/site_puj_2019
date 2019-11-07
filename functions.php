@@ -128,6 +128,22 @@ function itemInfo($theField){
 	    echo '</p>'; 
 	echo '</div>';
 
-}     
+}   
+
+function hilda_project_get_terms($postID, $term){
+
+  $termsList = wp_get_post_terms($postID, $term, array(
+    'orderby' => 'term_order', 'order' => 'ASC'
+    )
+     );
+  $output = '';
+  $i = 0;
+  foreach($termsList as $term){
+    $i++;
+      if ($i > 1){ $output .= ', '; }
+          $output .= '<a href ="'. get_term_link($term) . '">'. $term -> name . '</a>';
+        }
+  return $output;     
+}  
 
 ?>
