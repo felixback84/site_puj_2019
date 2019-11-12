@@ -30,11 +30,11 @@ if (is_user_logged_in()) {
 		      );
 
 		  	while($terapias->have_posts()) {
-		      $terapias->the_post(); 
-		      $durationTeraphy = get_field('field_5dc32f88b81f6'); 
-		      $nivelDolor = hilda_project_get_terms($post->ID, 'nivel_de_dolor');
-		      $ubicacionDolor = hilda_project_get_terms($post->ID, 'ubicacion_de_dolor');
-		      $etiquetas = hilda_project_get_terms($post->ID, 'etiquetas');
+			      $terapias->the_post(); 
+			      $durationTeraphy = get_field('field_5dc32f88b81f6'); 
+			      $nivelDolor = hilda_project_get_terms($post->ID, 'nivel_de_dolor');
+			      $ubicacionDolor = hilda_project_get_terms($post->ID, 'ubicacion_de_dolor');
+			      $etiquetas = hilda_project_get_terms($post->ID, 'etiquetas');
 		    
 		    ?>
 
@@ -49,16 +49,19 @@ if (is_user_logged_in()) {
 				          	<div style="background-color: rgba(255,255,255, 0.8);" class="card mb-2 mb-sm-0">
 				            	<!-- Header -->
 				            	<header class="card-header text-center p-2">
-					                <span class="display-4 text-dark">
+					                <h3>
 					                  <?php the_title();?>
-					                </span>
+					                </h3>
 				            	</header>
 				            	<!-- End Header -->
 
 				            	<!-- Content -->
 				            	<div class="card-body p-5">
 				              		<ul class="list-unstyled mb-2">
-				                		<li class="font-size-14 py-1"><i class="far fa-sad-cry"></i> Nivel de dolor: <?php echo $nivelDolor;?></li>
+				                		<li class="font-size-14 py-1">
+				                			<i class="far fa-sad-cry"></i> 
+				                			Nivel de dolor: <?php echo $nivelDolor;?>
+				                		</li>
 				                		<li class="font-size-14 py-1">Ubicación del dolor: <?php echo $ubicacionDolor;?></li>
 				                		<li class="font-size-14 py-1">Lugar: <?php echo $etiquetas;?></li>
 				                		<li class="font-size-14 py-1">Duración: <?php echo $durationTeraphy;?> Minuntos</li>
@@ -73,16 +76,68 @@ if (is_user_logged_in()) {
 	        	</div>
 	      	</div>
 	      	<!-- End Slide #1 -->
-	      <?php } ?>
+	      	<?php } wp_reset_postdata(); ?>
 	    </div>
 	    <!-- End Hero Section -->
-	</main>
 
+	   	<!-- News Section -->
+    	<div class="bg-gray-100">
+      		<div class="container space-2 space-3--lg">
+        		<!-- Title -->
+        		<div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
+          			<span class="u-label u-label--sm u-label--purple mb-3">News</span>
+          			<h2 class="h3">Read our news &amp; blogs</h2>
+          			<p>Our duty towards you is to share our experience we're reaching in our work path with you.</p>
+        		</div>
+        		<!-- End Title -->
+
+	        	<div class="card-deck d-block d-lg-flex">
+
+		    	<?php 
+
+			    $terapiasChart = new WP_Query(
+			      array(
+
+			      'posts_per_page' => -1,
+			      'orderby'   => 'rand',
+			      'post_type' => 'terapias'
+			            )
+			      );
+
+			  	while($terapiasChart->have_posts()) {
+				      $terapiasChart->the_post(); 
+				      $durationTeraphy1 = get_field(''); 
+				      $nivelDolor1 = hilda_project_get_terms($post->ID, 'nivel_de_dolor');
+				      $ubicacionDolor1 = hilda_project_get_terms($post->ID, 'ubicacion_de_dolor');
+				      $etiquetas1 = hilda_project_get_terms($post->ID, 'etiquetas');?>
+
+			    	<article class="card border-0 mb-5">
+	            		<div class="card-body row align-items-stretch no-gutters p-0">
+	              			<!-- News Blog Card -->
+	              			<div class="col-7 border border-right-0 rounded-left">
+	                			<div class="p-5">
+	                  				<h2 class="h5 mb-3">
+	                    			<a href="../blog/single-article-classic.html">Announcing a free plan for small teams</a>
+	                  			</h2>
+	                 		 	<p class="mb-0">We've always believed that by providing a space where.</p>
+	                		</div>
+	              		</div>
+	              		<div class="col-5 card-img-right border border-left-0 bg-img-hero" data-bg-img-src="../../assets/img/500x550/img1.jpg"></div>
+	            		</div>
+	            	<!-- End News Blog Card -->
+	          		</article>
+			    <?php } ?>
+		    	</div>
+		    </div>	
+		</div> 
+
+
+	</main>
 	<?php } 
 
 } else {
 
-	// do something
+	// do login/regiister form
 }
 
 get_footer();

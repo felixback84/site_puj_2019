@@ -88,7 +88,9 @@ function themepuj_features() {
 	add_image_size('banner_main',1920, 1080, true);
 	add_image_size('products_home',500, 550, true);
 	add_image_size('categories_cover',175, 320, true);
+	add_image_size('icon_categorias_productos',160, 160, true);
 	add_image_size('products_thumb_mini_slider',100, 100, true);
+
 }
 
 add_action('after_setup_theme','themepuj_features');

@@ -104,26 +104,23 @@ get_header();
 			        $title = $image['title'];
 			        $alt = $image['alt'];
 			     	// which size?
-			        $size = 'categories_cover';
+			        $size = 'icon_categorias_productos';
 			        $thumb = $image['sizes'][ $size ];
 		    ?>
-	        <article class="card border-0 mb-5 mb-lg-0">
-		        <div class="card-body row align-items-stretch no-gutters p-0">
-		            <div class="col-6 border border-right-0">
-		                <div class="space-1 px-2 px-sm-3">
-			                <div class="mb-4">
-				                <h3 class="h4"><a href ="<?php echo get_term_link($term)?>"><?php echo $term -> name; ?></a></h3>
-				                <p class="mb-0"><?php $littleDesc = $term -> description; 
-				                echo wp_trim_words($littleDesc, 15);?></p>
-			                </div>
-		                	<a href="<?php get_term_link($term)?>">Ver más</a>
-		                </div>
-		            </div>
-		            <div class="col-6 border border-left-0 bg-img-hero-center">
-		            	<img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>"/>
-		            </div> 
-		        </div>    
-	        </article>
+
+		    <!-- Slide #1 -->
+		    
+	        <div class="container js-slide u-slick--pagination-modern__item">
+	            <div class="media align-items-center border p-3">
+	              	<div class="media-body px-2">
+	                	<span class="u-slick--pagination-modern__item-text"><a href ="<?php echo get_term_link($term)?>"><?php echo $term -> name; ?></a>
+	                	</span>
+	              	</div>
+	              	<img class="u-avatar mx-auto" src="<?php echo $thumb; ?>" alt="<?php echo $alt;?>">
+	            </div>
+	        </div>
+	       
+	        <!-- End Slide #1 -->
 	        <?php } wp_reset_postdata(); // end foreach ?>
 	    </div>
 	    <!-- End Categories --> 
