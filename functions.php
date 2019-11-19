@@ -130,7 +130,9 @@ function itemInfo($theField){
 	    echo '</p>'; 
 	echo '</div>';
 
-}   
+}  
+
+// Get terms 
 
 function hilda_project_get_terms($postID, $term){
 
@@ -148,4 +150,27 @@ function hilda_project_get_terms($postID, $term){
   return $output;     
 }  
 
+
+/*
+Sidebar single blog
+*/
+
+function hilda_widget_setup() {
+
+  register_sidebar(
+  	array(
+		    'name' => 'Sidebar Blog',
+		    'id' => 'sidebar-1',
+		    'class' => 'custom',
+		    'description' => 'Standard blog sibebar',
+		    'before_widget' => '<li id="%1$s" class="py-1">',
+		    'after_widget'  => "</li>\n",
+		    'before_title'  => '<h3 class="h5 mb-3 text-secondary">',
+		    'after_title'   => "</h3>\n",
+	  	)
+	);
+
+}
+
+add_action('widgets_init','hilda_widget_setup');
 ?>
