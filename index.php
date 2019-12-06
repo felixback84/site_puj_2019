@@ -1,10 +1,10 @@
 <?php
 get_header();?>
 
-<main id="content" role="main">
+<main id="content" role="main" style="padding-top: 120px;">
   <!-- Hero Section -->
   <div class="container py-3">
-    <h1>Blog & News</h1>
+    <h1>Blog & Noticias</h1>
   </div>
   <!-- End Hero Section -->
   <!-- News Blog Content -->

@@ -58,15 +58,12 @@ if (is_user_logged_in()) {
 				            	<!-- Content -->
 				            	<div class="card-body p-5">
 				              		<ul class="list-unstyled mb-2">
-				                		<li class="font-size-14 py-1">
-				                			<i class="far fa-sad-cry"></i> 
-				                			Nivel de dolor: <?php echo $nivelDolor;?>
-				                		</li>
+				                		<li class="font-size-14 py-1">Nivel de dolor: <?php echo $nivelDolor;?></li>
 				                		<li class="font-size-14 py-1">Ubicación del dolor: <?php echo $ubicacionDolor;?></li>
 				                		<li class="font-size-14 py-1">Lugar: <?php echo $etiquetas;?></li>
 				                		<li class="font-size-14 py-1">Duración: <?php echo $durationTeraphy;?> Minuntos</li>
 				              		</ul>
-				              		<button type="button" class="btn btn-block btn-sm btn-primary">Start Free Trial</button>
+				              		<button type="button" class="btn btn-block btn-sm btn-primary">Conocela ya</button>
 				            	</div>
 				            	<!-- End Content -->
 				          	</div>
@@ -82,12 +79,11 @@ if (is_user_logged_in()) {
 
 	   	<!-- News Section -->
     	<div class="bg-gray-100">
-      		<div class="container space-2 space-3--lg">
+      		<div class="container space-1 space-1--lg">
         		<!-- Title -->
         		<div class="w-md-80 w-lg-60 text-center mx-md-auto mb-9">
-          			<span class="u-label u-label--sm u-label--purple mb-3">News</span>
-          			<h2 class="h3">Read our news &amp; blogs</h2>
-          			<p>Our duty towards you is to share our experience we're reaching in our work path with you.</p>
+          			<h2 class="h3">Conoce nuestras terapias</h2>
+          			<p>Diseñadas especialmente para tí según tu tipo y nevel de dolor.</p>
         		</div>
         		<!-- End Title -->
 
@@ -106,7 +102,7 @@ if (is_user_logged_in()) {
 
 			  	while($terapiasChart->have_posts()) {
 				      $terapiasChart->the_post(); 
-				      $durationTeraphy1 = get_field(''); 
+				      $durationTeraphy1 = get_field('field_5dc32f88b81f6'); 
 				      $nivelDolor1 = hilda_project_get_terms($post->ID, 'nivel_de_dolor');
 				      $ubicacionDolor1 = hilda_project_get_terms($post->ID, 'ubicacion_de_dolor');
 				      $etiquetas1 = hilda_project_get_terms($post->ID, 'etiquetas');?>
@@ -117,12 +113,20 @@ if (is_user_logged_in()) {
 	              			<div class="col-7 border border-right-0 rounded-left">
 	                			<div class="p-5">
 	                  				<h2 class="h5 mb-3">
-	                    			<a href="../blog/single-article-classic.html">Announcing a free plan for small teams</a>
+	                    			<a href="<?php echo get_the_permalink();?>"><?php echo get_the_title();?></a>
+	                    			<hr class="my-2">
+	                    			<ul class="list-unstyled mb-2">
+		                    			<li class="font-size-14 py-1">Ubicación del dolor: <?php echo $ubicacionDolor;?></li>
+				                		<li class="font-size-14 py-1">Lugar: <?php echo $etiquetas;?></li>
+				                		<li class="font-size-14 py-1">Duración: <?php echo $durationTeraphy;?> Minuntos</li>
+				                	</ul>	
+				                	<hr class="my-2">
 	                  			</h2>
-	                 		 	<p class="mb-0">We've always believed that by providing a space where.</p>
+	                 		 	<p class="mb-0"><?php echo wp_trim_words(get_the_content($post),18);?></p>
 	                		</div>
 	              		</div>
-	              		<div class="col-5 card-img-right border border-left-0 bg-img-hero" data-bg-img-src="../../assets/img/500x550/img1.jpg"></div>
+	              		<?php $thumb1 = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'products_home' );?>
+	              		<div class="col-5 card-img-right border border-left-0 bg-img-hero" style="background-image: url('<?php echo $thumb1['0'];?>');"></div>
 	            		</div>
 	            	<!-- End News Blog Card -->
 	          		</article>
@@ -135,10 +139,20 @@ if (is_user_logged_in()) {
 	</main>
 	<?php } 
 
-} else {
+} else { ?>
 
-	// do login/regiister form
-}
+	<div class="container space-1">
+		<div class="row align-items-md-center" style="padding-top: 100px;">
+		    <div class="col-md-12">
+		    	<h2 class="h4 mb-1">¿Tienes una cuenta?</h2>
+		      	<p class="mb-0">Te invitamos a crear una, es muy fácil y rapido.</p>	
+		      	<!-- Form -->
+		      	<?php echo do_shortcode('[wpforms id="132" title="false" description="false"]'); ?>
+		      	<!-- End Form -->
+		    </div>
+		</div>
+	</div>
+<?php }
 
 get_footer();
 

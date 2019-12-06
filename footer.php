@@ -8,7 +8,6 @@
           <!-- List Group -->
           <div class="list-group list-group-flush list-group-transparent">
             <a class="list-group-item list-group-item-action" href="<?php echo site_url('/faq/')?>">FAQ</a>
-            <a class="list-group-item list-group-item-action" href="<?php echo site_url('/asistencia-premium/')?>">Asistencia Premiúm</a>
           </div>
           <!-- End List Group -->
         </div>
@@ -19,8 +18,6 @@
           <!-- List Group -->
           <div class="list-group list-group-flush list-group-transparent">
             <a class="list-group-item list-group-item-action" href="<?php echo site_url('/contactenos/')?>">Contáctenos</a>
-            
-            <a class="list-group-item list-group-item-action" href="<?php echo site_url('/blog/')?>">Blog y Noticias</a>
             <a class="list-group-item list-group-item-action" href="<?php echo site_url('/terminos-condiciones/')?>">Términos &amp; Condiciones</a>
             
           </div>
@@ -60,76 +57,131 @@
 
          
         <!-- End Divider -->
-        <p class="small text-muted">Todos los derechos reservados. &copy; Travelmate. <?php echo date('Y');?> | Powered by La Maleta de Félix S.A.S</p>
+        <p class="small text-muted">Todos los derechos reservados. &copy; Hilda Project. <?php echo date('Y');?> | Powered by La Maleta de Félix S.A.S</p>
     </div>
   </footer>
 
   <!-- ========== END FOOTER ========== -->	
 
-  
-  <!-- JS Plugins Init. -->
-  <script>
-    jQuery(window).on('load', function () {
-      // initialization of header
-      $.HSCore.components.HSHeader.init($('#header'));
+   <!-- JS Plugins Init. -->
+<script>
+  jQuery(window).on('load', function () {
+    // initialization of header
+    $.HSCore.components.HSHeader.init($('#header'));
+  });
+</script>
+<!-- JS Implementing Plugins -->
 
-     // initialization of HSMegaMenu component
-      $('.js-mega-menu').HSMegaMenu({
-        event: 'hover',
-        pageContainer: $('.container'),
-        breakpoint: 767,
-        hideTimeOut: 0
-      });
-    });
-  </script>
-  <!-- JS Implementing Plugins -->
+<!-- JS Plugins Init. -->
+<script>
 
-  <!-- JS Plugins Init. -->
-  <script>
-
-    jQuery(document).on('ready', function () {
-      // initialization of unfold component
-      $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
-        afterOpen: function () {
-          if (!$('body').hasClass('IE11')) {
-            $(this).find('input[type="search"]').focus();
-          }
+  jQuery(document).on('ready', function () {
+    // initialization of unfold component
+    $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+      afterOpen: function () {
+        if (!$('body').hasClass('IE11')) {
+          $(this).find('input[type="search"]').focus();
         }
-
-      });
-
-      // initialization of forms
-      $.HSCore.helpers.HSFocusState.init();
-
-      // initialization of malihu scrollbar
-      $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
-      $(".js-scrollbar").mCustomScrollbar({
-      axis:"x" // vertical and horizontal scrollbar
-      });
-
-      // initialization of slick carousel
-      $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel'); 
-
-      // initialization of autonomous popups
-      $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-signup-modal', {
-        autonomous: true
-      });
-
-      // initialization of show animations
-      $.HSCore.components.HSShowAnimation.init('.js-animation-link');
-
-      // initialization of video player
-      $.HSCore.components.HSVideoPlayer.init('.js-inline-video-player');
-
-      // initialization of cubeportfolio
-      $.HSCore.components.HSCubeportfolio.init('.cbp');  
-
-      // initialization of fancybox
-      $.HSCore.components.HSFancyBox.init('.js-fancybox');
+      }
 
     });
 
-  </script>
+   
+
+    // initialization of form validation
+
+    //$.HSCore.components.HSValidation.init('.js-validate', {
+    //  rules: {
+
+    //      password-signup:{
+    //        minlength: 7
+    //      },  
+
+    //      password-confirm-signup: {
+    //        equalTo: "#password-signup",
+    //    }
+    //  }
+
+    //  messages: {
+    //    password-signup: {
+    //      minlength: "cuente bien",
+    //    }
+    //  }
+
+    //});
+
+    // initialization of forms
+    $.HSCore.helpers.HSFocusState.init();
+
+    // initialization of malihu scrollbar
+    $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+    $(".js-scrollbar").mCustomScrollbar({
+    axis:"x" // vertical and horizontal scrollbar
+    });
+
+    // initialization of slick carousel
+    $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel'); 
+
+    // initialization of autonomous popups
+    $.HSCore.components.HSModalWindow.init('[data-modal-target]', '.js-signup-modal', {
+      autonomous: true
+    });
+
+    // initialization of show animations
+    $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+    // initialization of video player
+    $.HSCore.components.HSVideoPlayer.init('.js-inline-video-player');
+
+    // initialization of cubeportfolio
+    $.HSCore.components.HSCubeportfolio.init('.cbp');  
+
+  });
+
+</script>
+
+<style>
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 90px;
+    z-index: 99;
+    font-size: 18px;
+    border: solid 1px
+    outline: none;
+    background-color: #000042;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+  #myBtn:hover {
+    background-color: #555;
+  }
+</style>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("myBtn").style.display = "block";
+    } else {
+      document.getElementById("myBtn").style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
 
 <?php wp_footer();?>
 	</body>	

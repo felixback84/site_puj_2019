@@ -40,13 +40,10 @@ while(have_posts()) {
     </div>   
     
     <div class="row">  
-      <div class="col-lg-9 mb-3">
+      <div class="col-lg-12 mb-3">
         <h2 class="text-secondary"><?php the_title();?></h2>
         <p><?php the_content();?></p>          
       </div>
-    	<div class="col-lg-3">
-     		<?php get_sidebar();?> 
-    	</div>  
   	</div>
   </div>  
   

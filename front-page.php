@@ -4,7 +4,7 @@ get_header();?>
   <!-- ========== MAIN CONTENT ========== -->
 <main id="content" role="main">
   <!-- Hero Section -->
-  <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'pageBanner' );?>
+  <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'banner_main' );?>
   <div class="gradient-overlay-half-dark-v1 bg-img-hero" style="background-image: url('<?php echo $thumb['0'];?>');">
     <div class="d-lg-flex align-items-lg-center flex-lg-column">
       <div class="container space-3 space-4-top--lg">
